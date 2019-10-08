@@ -1,0 +1,30 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block title %} InstaClone | Image Gallery {% endblock %}
+
+
+
+ {% block addPhoto %}<a class="photoAdd" href="{% url 'gallery:add_post'%}"><img src="{% static '/img/addpic.png' %}"></a>{% endblock %}
+
+
+
+{% block content %}
+<ul>
+
+  {% for post in object_list %}
+
+  <li>
+
+    <a href="#">
+    <img src="{{ post.cover.url}}" alt="{{ post.title }}">
+    </a>
+
+    <h2>{{ post.title }}</h2>
+
+  </li>
+
+  {% endfor %}
+</ul>
+
+
+{% endblock %}
